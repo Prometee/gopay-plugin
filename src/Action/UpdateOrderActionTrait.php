@@ -15,22 +15,18 @@ trait UpdateOrderActionTrait
 
         if (GoPayApiInterface::PAID === $response->json['state']) {
             $model['gopayStatus'] = $response->json['state'];
-            $request->setModel($model);
         }
 
         if (GoPayApiInterface::CANCELED === $response->json['state']) {
             $model['gopayStatus'] = $response->json['state'];
-            $request->setModel($model);
         }
 
         if (GoPayApiInterface::TIMEOUTED === $response->json['state']) {
             $model['gopayStatus'] = $response->json['state'];
-            $request->setModel($model);
         }
 
         if (GoPayApiInterface::CREATED === $response->json['state']) {
             $model['gopayStatus'] = GoPayApiInterface::CANCELED;
-            $request->setModel($model);
         }
     }
 }
